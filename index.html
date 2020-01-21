@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, Paper and Scissors Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            background-color:lightslategray;
+        }
+        .players{
+             width: 60%;
+             margin: 0 auto;
+             margin-top: 50px;
+        }
+        .player1{
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+        .computer{
+            float: right;
+            width: 50%;
+            text-align: center;
+    
+        }
+        .button{
+            margin-top: 250px;
+            text-align: center;
+        }
+        .playerimage{
+            width: 150px;
+            height: 150px;
+            margin:auto;
+        }
+        .compimage{
+            width: 150px;
+            height: 150px;
+            margin:auto;
+        }
+        .btn{
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <br>
+        <h2>Rock, Paper and Scissors</h2>
+    </center>
+        <div class="players">
+            <div class="player1">
+                <h4>Aj</h4>
+                <div class="playerimage">
+                    <img src="" alt="" id="playerChoice" width="150px" height="150px">
+                </div>
+                <h5>Please select your choice:</h5>
+                
+            <button type="button" class="btn btn-lg btn-primary" onclick="rock()">Rock</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick="paper()">Paper</button>
+            <button type="button" class="btn btn-lg btn-primary" onclick="scissors()">Scissors</button>
+
+            </div>
+            <div class="computer">
+                <h4>Computer</h4>
+                <div class="compimage">
+                    <img src="" alt="" id="computerChoice" width="150px" height="150px">
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="button">
+            <button type="button" class="btn btn-lg btn-primary" onclick="start()">Start</button>
+            <br><br>
+            <h1 id="status"></h1>
+        </div>
+    <script>
+        //1 = rock, 2 = paper, 3 = scissors
+        var computerChoice, playerChoice = 0;
+        function start(){
+            computerChoice = Math.floor((Math.random() * 3 ) + 1) 
+            if(computerChoice == 1){
+                document.getElementById("computerChoice").src = "rock.png";
+                if(playerChoice == 1){
+                    document.getElementById("status").innerHTML = "It's Match";
+                } else if(playerChoice == 2){
+                    document.getElementById("status").innerHTML = "Aj wins!";
+                } else {
+                    document.getElementById("status").innerHTML = "Computer wins!";
+                }
+            } else if (computerChoice == 2){
+                document.getElementById("computerChoice").src = "paper.png";
+                if(playerChoice == 1){
+                    document.getElementById("status").innerHTML = "Computer wins!";
+                } else if(playerChoice == 2){
+                    document.getElementById("status").innerHTML = "It's Match";
+                } else {
+                    document.getElementById("status").innerHTML = "Aj wins!";
+                }
+            } else if(playerChoice == 0){
+                document.getElementById("status").innerHTML = "Hey AJ!, Please select your choice!";
+            } else {
+                document.getElementById("computerChoice").src = "scissors.png";
+                if(playerChoice == 1){
+                    document.getElementById("status").innerHTML = "Aj wins!";
+                } else if(playerChoice == 2){
+                    document.getElementById("status").innerHTML = "Computer wins!";
+                } else {
+                    document.getElementById("status").innerHTML = "It's Match";
+                }
+            }
+        }
+        function rock(){
+            playerChoice = 1;
+            document.getElementById("playerChoice").src = "rock.png";
+        }
+        function paper(){
+            playerChoice = 2;
+            document.getElementById("playerChoice").src = "paper.png";
+        }
+        function scissors(){
+            playerChoice = 3;
+            document.getElementById("playerChoice").src = "scissors.png";
+        }
+        
+    </script>
+</body>
+</html>
